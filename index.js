@@ -6,6 +6,7 @@ const port = 5000;
 const server = express()
 
 server.use(express.json())
+server.use(cors())
 
 server.get("/", (req, res) =>{
     res.json({ message: "We're all mad here..."})
