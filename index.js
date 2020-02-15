@@ -44,7 +44,7 @@ server.get('/api/users/:id', (req, res) =>{
         })
 
         .catch(err =>{
-            res.status(404).json({
+            res.status(500).json({
                 errorMessage: "The user information could not be retrieved."
             });
         });
@@ -98,6 +98,7 @@ server.delete('/api/users/:id', (req, res) => {
 
 server.put("/api/users/:id", (req, res) =>{
     const editUser = req.body;
+    console.log(editUser);
     if (editUser.name && editUser.bio){
         db.update(editUser.id, editUser)
             .then(user =>{
